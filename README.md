@@ -28,3 +28,4 @@ docker build -t rust_api:rust_api .
 docker run rust_api:rust_api
 ```
 
+test

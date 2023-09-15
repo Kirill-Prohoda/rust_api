@@ -1,0 +1,21 @@
+name: Auto Merge Master to Develop
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  auto_merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Merge to develop
+      run: |
+        git checkout develop
+        git merge --no-ff --no-commit master
+        git commit -m "Auto-merge changes from master"
+        git push origin develop
